@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Bao",
+      "last_name": "Nguyen",
+      "email": "bao@gmail.com",
+      "age": "12",
+      "phone_number": "0922763576",
+      "address": "Quang Nam",
+      "gender": "Male",
+      "password": "13561611",
+      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png"
+    },
+    {
+      "id": 2,
+      "first_name": "Hoang",
+      "last_name": "Nguyen",
+      "email": "hoang@gmail.com",
+      "age": "22",
+      "phone_number": "0798987667",
+      "address": "DaNang",
+      "gender": "Male",
+      "password": "13561611",
+      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png"
+    },
+    {
+      "id": 3,
+      "first_name": "Nhi",
+      "last_name": "Nguyen",
+      "email": "nhi@gmail.com",
+      "age": "12",
+      "phone_number": "0887676554",
+      "address": "DaNang",
+      "gender": "Female",
+      "password": "13561611",
+      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269619/ProfileProject/female_foayqk.png"
+    }
+  ]
+}
