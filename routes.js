@@ -1,28 +1,3 @@
-const formidable = require("formidable");
-const { copyFile, unlink } = require("fs/promises");
-const { generateJwtToken } = require("./auth");
-
-const handleUploadFile = async (req, file) => {
-  const uploadFolder = "uploads";
-
-  try {
-    // Copy file from temp folder to uploads folder (not rename to allow cross-device link)
-    await copyFile(file.path, `./public/${uploadFolder}/${file.name}`);
-
-    // Remove temp file
-    await unlink(file.path);
-
-    // Return new path of uploaded file
-    file.path = `${req.protocol}://${req.get("host")}/${uploadFolder}/${
-      file.name
-    }`;
-
-    return file;
-  } catch (err) {
-    throw err;
-  }
-};
-
 module.exports = {
   loginHandler: (db, req, res) => {
     const { email, password: pwd } = req.body;
@@ -33,12 +8,10 @@ module.exports = {
       .value();
 
     if (user && user.password === pwd) {
-      const token = generateJwtToken(user.id);
       const { password, ...userWithoutPassword } = user;
 
       res.jsonp({
-        ...userWithoutPassword,
-        token,
+        ...userWithoutPassword
       });
     } else {
       res.status(400).jsonp({ message: "Email or password is incorrect!" });
@@ -91,77 +64,5 @@ module.exports = {
     db.get("users").push(newUser).write();
 
     res.jsonp(newUser);
-  },
-
-  uploadFileHandler: (req, res) => {
-    if (req.headers["content-type"] === "application/json") {
-      res
-        .status(400)
-        .jsonp({ message: 'Content-Type "application/json" is not allowed.' });
-      return;
-    }
-
-    const form = formidable();
-
-    form.parse(req, async (error, fields, files) => {
-      let file = files.file;
-
-      if (error || !file) {
-        res.status(400).jsonp({ message: 'Missing "file" field.' });
-        return;
-      }
-
-      try {
-        file = await handleUploadFile(req, file);
-        res.jsonp(file);
-      } catch (err) {
-        console.log(err);
-        res.status(500).jsonp({ message: "Cannot upload file." });
-      }
-    });
-  },
-
-  uploadFilesHandler: (req, res) => {
-    if (req.headers["content-type"] === "application/json") {
-      res
-        .status(400)
-        .jsonp({ message: 'Content-Type "application/json" is not allowed.' });
-      return;
-    }
-
-    const form = formidable({ multiples: true });
-
-    form.parse(req, async (error, fields, files) => {
-      let filesUploaded = files.files;
-
-      if (error || !filesUploaded) {
-        res.status(400).jsonp({ message: 'Missing "files" field.' });
-        return;
-      }
-
-      // If user upload 1 file, transform data to array
-      if (!Array.isArray(filesUploaded)) {
-        filesUploaded = [filesUploaded];
-      }
-
-      try {
-        // Handle all uploaded files
-        filesUploaded = await Promise.all(
-          filesUploaded.map(async (file) => {
-            try {
-              file = await handleUploadFile(req, file);
-              return file;
-            } catch (err) {
-              throw err;
-            }
-          })
-        );
-
-        res.jsonp(filesUploaded);
-      } catch (err) {
-        console.log(err);
-        res.status(500).jsonp({ message: "Cannot upload files." });
-      }
-    });
   },
 };
