@@ -2,11 +2,11 @@
   "name": "json-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,11 @@
   "author": "Suri",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.16.3"
+    "date-fns": "^2.25.0",
+    "formidable": "^1.2.2",
+    "json-server": "^0.16.3",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^1.0.0"
   },
   "bugs": {
     "url": "https://github.com/nguyenthimynhi2409/json-server/issues"

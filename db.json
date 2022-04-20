@@ -1,4 +1,13 @@
 {
+  "protected_resources": {
+    "users": [
+      "GET",
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ]
+  },
   "users": [
     {
       "id": 1,
