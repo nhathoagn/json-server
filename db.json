@@ -11,8 +11,13 @@
       "gender": "Male",
       "password": "13561611",
       "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png",
-      "todoContent": "Lau Nhà",
-      "completed": false
+      "todo": [
+        {
+          "todoId": 1,
+          "title": "Lâu Nhà",
+          "completed": false
+        }
+      ]
     },
     {
       "id": 2,
@@ -25,8 +30,13 @@
       "gender": "Male",
       "password": "13561611",
       "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png",
-      "todoContent": "Quét Sân",
-      "completed": false
+      "todo": [
+        {
+          "todoId": 2,
+          "title": "Rửa Chén",
+          "completed": false
+        }
+      ]
     },
     {
       "id": 3,
@@ -39,8 +49,15 @@
       "gender": "Female",
       "password": "13561611",
       "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269619/ProfileProject/female_foayqk.png",
-      "todoContent": "Rửa Chén",
-      "completed": false
+      "todo": [
+        {
+          "todoId": 1,
+          "title": "Chăn Bò",
+          "completed": false
+        }
+      ]
+
     }
   ]
+
 }
