@@ -10,7 +10,9 @@
       "address": "Quang Nam",
       "gender": "Male",
       "password": "13561611",
-      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png"
+      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png",
+      "todoContent": "Lau Nhà",
+      "completed": false
     },
     {
       "id": 2,
@@ -22,7 +24,9 @@
       "address": "DaNang",
       "gender": "Male",
       "password": "13561611",
-      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png"
+      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269617/ProfileProject/male_huq2ca.png",
+      "todoContent": "Quét Sân",
+      "completed": false
     },
     {
       "id": 3,
@@ -34,7 +38,9 @@
       "address": "DaNang",
       "gender": "Female",
       "password": "13561611",
-      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269619/ProfileProject/female_foayqk.png"
+      "avatar": "https://res.cloudinary.com/dn1b78bjj/image/upload/v1650269619/ProfileProject/female_foayqk.png",
+      "todoContent": "Rửa Chén",
+      "completed": false
     }
   ]
 }
